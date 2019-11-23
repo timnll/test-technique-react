@@ -1,4 +1,10 @@
-Cette application se pase sur le projet [Create React App](https://github.com/facebook/create-react-app).
+Cette application se base sur le projet [Create React App](https://github.com/facebook/create-react-app).
+
+## Dépendances
+
+Pour run le projet, il faut tout d'abord réinstaller les dépendances du projet, pour se faire lancer la commande
+
+### `npm install --save`
 
 ## Scripts disponibles
 
