@@ -12,7 +12,46 @@ code {
     monospace;
 }
 
+
+/*fixe la navbar en haut de page*/
+.fixed-nav {
+  position: sticky; /* fixe la position */
+  top: 0; /* tout en haut de page */
+  z-index: 1; /* passe la navbar en premier plan */
+}
+
+/* contenu la navbar */
 .navbar-brand{
-  text-align: center;
+  text-align: center; 
   width: 100%;
+}
+
+/* css pour définir et placer le select sur la page */
+.select-season {
+  margin-top: 2%; /* marge par rapport à la navbar */
+  width: 50%; /* largeur du select */
+  display: block; /* placement au centre */
+  margin-left: auto; /* placement au centre */
+  margin-right: auto; /* placement au centre */
+}
+
+/* centre le contenu de présentation de l'application */
+.info-select {
+  text-align: center; /* placement au centre */  
+  margin-top: 3%;
+}
+
+/* placement de la listes des pilotes */
+.drivers-list {
+  margin-top: 1%;
+}
+
+/* centrer le contenu des lignes du tableau des résultats */
+.table td {
+  text-align: center;   
+}
+
+/* centrer le contenu des titres des colonnes du tableau des résultats */
+.table th {
+  text-align: center;   
 }

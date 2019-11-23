@@ -1,51 +1,52 @@
 import React from 'react';
-import DriversList from './components/driverslist';
+import DriversList from './driverslist';
+import UserInterface from './userinterface';
 
-class UserInterface extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            apiURL: null,
-        }
-    }
 
-    render(){
-        return(
-            <div className="userInterface">
-                <button type="button" className="btn my-4 btn-secondary btn-lg btn-block" onClick={() => this.props.onClick('2019')}>2019</button>
-                <button type="button" className="btn my-4 btn-secondary btn-lg btn-block" onClick={() => this.props.onClick('2018')}>2018</button>
-                <button type="button" className="btn my-4 btn-secondary btn-lg btn-block" onClick={() => this.props.onClick('2017')}>2017</button>
-            </div>
-        );
-    }
-}
-
+// *** composant maître App *** //
+// appelle le menu de sélection de la saison et la liste des pilotes de la saison sélectionnée
 class App extends React.Component{
 
     constructor(props){
         super(props);
         this.state = {
-            list: [],
+            season: null, //saison sélectionnée
+            driverslist: [], // liste des pilotes à afficher
         }
     }
-    getDrivers(year) {
-        fetch('http://ergast.com/api/f1/'+ year +'/drivers.json')
-        .then(res => res.json())
+
+    // fonction faisant une requête API pour aller chercher la liste des pilotes par saison
+    // pas d'ajout d'immutabilité (avec slice par exemple) car pas de traitement complexe nécessaire
+    // (on mute directement la donnée d'origine (on remplace les datas du tableau)
+    getDrivers(season) {
+        const apiURL = 'http://ergast.com/api/f1/'; //URL de base de l'API F1
+        fetch(apiURL + season +'/drivers.json') // effectue une requête get (exemple: http://ergast.com/api/f1/2019/drivers.json )
+        .then(res => res.json()) //récupère les données sous frme de json
         .then((data) => {
-            console.log(data.MRData.DriverTable.Drivers)
-            this.setState({ list: data.MRData.DriverTable.Drivers })
+            this.setState({ season: season, driverslist: data.MRData.DriverTable.Drivers }); //maj des variables du state
         })
-        .catch(console.log)
     }
 
+    //syntaxe JSX, données retournées: navbar, text d'introduction,
+    // appel à la classe de la liste déroulante, puis à la classe de la liste des pilotes
     render(){
         return(
-            <div>
-                <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <h4 className="navbar-brand font-weight-bold">F1 knowledge</h4>
+            <div>           
+                <nav className="navbar fixed-nav navbar-dark bg-dark">
+                    <h4 className="navbar-brand font-weight-bold">
+                        <img src="./F1_logo.png" width="70" height="30" alt=""/> Drivers Information</h4>
                 </nav>
-                <UserInterface onClick={(year) => this.getDrivers(year)}/>
-                <DriversList list={this.state.list}/>
+                <h2 className="info-select"> Welcome to the unofficial page of F1 drivers</h2>
+                <p className="info-select">
+                    This application is using the API database available on <a href="http://ergast.com/mrd" target="_blank" rel="noopener noreferrer">ergast.com/mrd</a><br/>
+                    to display the list of F1 drivers by season since 1980.
+                    </p>
+                    <h5 className="info-select">Please select a season: </h5>
+                <UserInterface onClick={(season) => this.getDrivers(season)}/>
+                <DriversList 
+                    season = {this.state.season} //passe la saison à la classe enfant
+                    list={this.state.driverslist} //passe la liste des pilotes à la classe enfant
+                />
             </div>
         );
     }
