@@ -1,3 +1,2 @@
 # Test technique en React
-test technique en React.js pour Canal
-
+Pour accéder au projet se rendre sur la branche 'test-technique'. :)
