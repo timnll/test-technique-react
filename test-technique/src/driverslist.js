@@ -23,12 +23,11 @@ class DriversList extends React.Component{
         fetch(apiURL + this.props.season +'/drivers/'+driverId+'/results.json')
         .then(res => res.json())
         .then((data) => {
-            console.log(data.MRData.RaceTable.Races)
             this.setState({ 
-                driverId: driverId,
-                results: data.MRData.RaceTable.Races,
-                driverFirstname: data.MRData.RaceTable.Races[0].Results[0].Driver.givenName,
-                driverName: data.MRData.RaceTable.Races[0].Results[0].Driver.familyName,
+                driverId: driverId, //id ud pilote dans l'AIP
+                results: data.MRData.RaceTable.Races, //résultats du pilote sur la saison
+                driverFirstname: data.MRData.RaceTable.Races[0].Results[0].Driver.givenName, //prénom du pilote
+                driverName: data.MRData.RaceTable.Races[0].Results[0].Driver.familyName, //nom du pilote
             })
         })
     }
