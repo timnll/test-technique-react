@@ -19,20 +19,20 @@ Ouvrez [http://localhost:3000](http://localhost:3000) pour visulaiser l'applicat
 
 ## L'application
 
-![Alt text] (public/Screens/Screen1.png)<br/>
+![Alt text] (public/Screens/Screen1.png?raw=true "Title")<br/>
 
 Cette application se base sur l'API [http://ergast.com/mrd/] qui est un web service fournissant
 un historique de données sur la F1 (historique des courses, records de courses, informations pilotes et circuits...). <br/>
 
-![Alt text] (public/Screens/Screen2.png)<br/>
+![Alt text] (public/Screens/Screen2.png?raw=true "Title")<br/>
 
 L'application conçue dans le cadre de ce test technique permet d'afficher les différents pilotes de Formule 1 ayant particpé à chaque saison depuis 1950 jusqu'à aujorud'hui.<br/>
 
-![Alt text] (public/Screens/Screen3.png)<br/>
+![Alt text] (public/Screens/Screen3.png?raw=true "Title")<br/>
 
 L'utilisateur peut également obtenir les résultats de chaque pilote sur la saison sélectionnée en cliquant sur le bouton 'Results'.<br/>
 
-![Alt text] (public/Screens/Screen4.png)<br/>
+![Alt text] (public/Screens/Screen4.png?raw=true "Title")<br/>
 
 ## Plus d'informations
 
