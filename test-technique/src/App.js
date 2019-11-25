@@ -39,7 +39,7 @@ class App extends React.Component{
                 <h2 className="info-select"> Welcome to the unofficial page of F1 drivers</h2>
                 <p className="info-select">
                     This application is using the API database available on <a href="http://ergast.com/mrd" target="_blank" rel="noopener noreferrer">ergast.com/mrd</a><br/>
-                    to display the list of F1 drivers by season since 1980.
+                    to display the list of F1 drivers by season since 1950.
                     </p>
                     <h5 className="info-select">Please select a season: </h5>
                 <UserInterface onClick={(season) => this.getDrivers(season)}/>
